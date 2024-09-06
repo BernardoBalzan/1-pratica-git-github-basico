@@ -16,18 +16,19 @@ public class Main {
         return contador;
     }
 
-    public int nroRepeat(ArrayList< Integer > l) {
-        int aux1 = 0;
-        int repetidos = 0;
+    public int nroRepeat(ArrayList<Integer> l) {
+        ArrayList<Integer> nroRepetidos = new ArrayList<>();
+        
         for (int i = 0; i < l.size(); i++) {
-            aux1 = l.get(i);
-            for (int j = 0; j < l.size(); j++) {
-                if (aux1 == l.get(j)) {
-                    repetidos++;
+            for (int j = i + 1; j < l.size(); j++) {
+                if (l.get(i).equals(l.get(j)) && !nroRepetidos.contains(l.get(i))) {
+                    nroRepetidos.add(l.get(i));
+                    break;
                 }
             }
         }
-        return repetidos;
+        
+        return nroRepetidos.size();
     }
 
 }
